@@ -1,3 +1,4 @@
+$PSVersionTable
 
 $modules = @("Pester", "ImportExcel")
 
@@ -6,3 +7,5 @@ foreach ($module in $modules) {
     Install-Module $module -Force -SkipPublisherCheck
     Import-Module $module -Force -PassThru
 }
+
+Invoke-Pester -Output Detailed
