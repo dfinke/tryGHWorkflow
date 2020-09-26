@@ -2,7 +2,8 @@ $PSVersionTable
 
 $modules = @("Pester", "ImportExcel")
 
-foreach ($module in $modules) {
+$modules | ForEach-Object -Parallel {
+    $module = $_
     Write-Host "Installing $module" -ForegroundColor Cyan
     Install-Module $module -Force -SkipPublisherCheck
     Import-Module $module -Force -PassThru
